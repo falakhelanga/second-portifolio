@@ -22,7 +22,7 @@ const Header = ({
   setDarkMode: React.Dispatch<React.SetStateAction<boolean>>;
 }) => {
   return (
-    <div className="w-full h-[10vh] flex justify-between   px-8 items-center">
+    <div className="w-full h-[15vh] md:w-[90%] 2xl:w-[70%] flex justify-between sticky top-0   items-center">
       <div className="flex">
         <div className="flex">
           <a
