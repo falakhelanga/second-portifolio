@@ -20,10 +20,15 @@ a {
 }
 
 .MuiLinearProgress-colorPrimary {
-  background-color: black;
+  background-color: black !important;
 }
 .MuiCircularProgress-circle {
-  background-color: black;
+  background-color: black !important;
+  color: rgb(251, 193, 8);
+}
+.MuiCircularProgress-colorSecondary {
+  background-color: black !important;
+  color: black;
 }
 
 .MuiLinearProgress-barColorPrimary {

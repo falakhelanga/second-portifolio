@@ -72,7 +72,7 @@ const SideBarContent = () => {
             >
               <Box sx={{ position: "relative", display: "inline-flex" }}>
                 <CircularProgress
-                  className="text-[#FBC108]  "
+                  // className="text-[#FBC108]  "
                   variant="determinate"
                   value={languages[key as keyof typeof languages]}
                 />
