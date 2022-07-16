@@ -47,3 +47,15 @@ a {
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
 }
+.visit-site {
+  transition: all ease-in-out 0.5s;
+}
+.link-to-visit-site:hover .visit-site {
+  margin-left: 0.3rem;
+}
+.project-desc {
+  transition: all ease 0.5s;
+}
+.project:hover .project-desc {
+  top: 0;
+}

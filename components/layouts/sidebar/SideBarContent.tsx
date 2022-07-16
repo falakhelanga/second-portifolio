@@ -33,7 +33,9 @@ const otherSkills = [
   `React testing, Jest`,
   `Tailwind css, Bootstrap, Material UI`,
   `GraphQL, RestApi, Express`,
+  `Git, Github, Bitbucket`,
   `MongoDb, AWS, Google Cloud`,
+  `strapi, wordpress`,
   `Firebase`,
 ];
 
