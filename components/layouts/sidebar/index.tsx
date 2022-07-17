@@ -28,7 +28,10 @@ const SideBar = () => {
           >
             Download CV
           </a>
-          <FileDownloadIcon className="text-muted  ml-1 text-[1rem]" />
+          <FileDownloadIcon
+            style={{ fontSize: "1rem" }}
+            className="text-muted  ml-1"
+          />
         </div>
         <SideBarFooter />
       </div>

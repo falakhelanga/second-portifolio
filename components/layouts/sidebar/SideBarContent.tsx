@@ -151,7 +151,10 @@ const SideBarContent = () => {
       <div>
         {otherSkills.map((skill) => (
           <div key={skill} className="flex items-center mb-1">
-            <CheckIcon className="text-[#FBC108] text-sm " />
+            <CheckIcon
+              style={{ fontSize: "0.8rem" }}
+              className="text-[#FBC108]  "
+            />
             <span className="text-gray-500 text-sm ml-1 font-bold">
               {skill}
             </span>

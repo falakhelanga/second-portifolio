@@ -43,7 +43,7 @@ const Project = ({
           >
             <span>Visit this site</span>{" "}
             <span className="visit-site">
-              <ChevronRightIcon className="text-[1.8em]" />
+              <ChevronRightIcon style={{ fontSize: "1rem" }} className="" />
             </span>
           </a>
         </div>
