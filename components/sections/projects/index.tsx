@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import Project from "../../elements/Project";
 
 const projects = [
@@ -41,8 +41,9 @@ const projects = [
 ];
 
 const Projects = () => {
+  const projectRef = useRef(null);
   return (
-    <div className="grid grid-cols-2 gap-6 w-full">
+    <div ref={projectRef} className="grid grid-cols-2 gap-6 w-full">
       {projects.map((project) => (
         <Project key={project.title} project={project} />
       ))}

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import Service from "../../elements/Service";
 
 const services = [
@@ -36,8 +36,9 @@ const services = [
 ];
 
 const Services = () => {
+  const serviceRef = useRef(null);
   return (
-    <div className="grid grid-cols-2 gap-4">
+    <div ref={serviceRef} className="grid grid-cols-2 gap-4">
       {services.map((service) => (
         <Service
           key={service.title}

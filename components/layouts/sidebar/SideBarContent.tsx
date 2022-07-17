@@ -18,11 +18,11 @@ const languages = {
 };
 
 const programmingLanguages = {
-  javascript: 90,
+  javascript: 95,
 
-  typescript: 80,
+  typescript: 90,
 
-  nodejs: 80,
+  nodejs: 90,
   python: 40,
 };
 

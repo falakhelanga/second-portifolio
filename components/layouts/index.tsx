@@ -1,4 +1,5 @@
 import React, { FC, useState } from "react";
+import Nav from "../sections/nav";
 import Header from "./Header";
 import Main from "./Main";
 import Menu from "./Menu";
@@ -8,9 +9,10 @@ const LayOut = ({ children }: { children: React.ReactNode }) => {
   const [darkMode, setDarkMode] = useState(false);
   return (
     <div
-      className={`mx-auto flex justify-center w-full items-center w-screen h-screen overflow-hidden text-white bg-[#191923]`}
+      className={`mx-auto flex justify-center w-full items-center w-screen h-screen overflow-hidden text-white bg-[#191923] `}
     >
-      <div className=" md:w-[98%] 2xl:w-[78%] h-[98vh] flex  overflow-hidden ">
+      <div className=" md:w-[98%] 2xl:w-[78%] h-[98vh] flex  overflow-hidden relative">
+        <Nav />
         <SideBar />
         <Main>{children}</Main>
         <Menu />
