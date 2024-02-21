@@ -53,7 +53,7 @@ const Menu = () => {
         isOpen ? "flex-[0.6]" : "flex-[0.1]"
       }  transition-all  duration-500 ease-out relative z-[6]`}
     >
-      <div
+      {/* <div
         className={`bg-[rgb(37,36,49)] ${
           isOpen ? "justify-start" : "justify-center"
         }  flex p-6 items-center`}
@@ -61,7 +61,7 @@ const Menu = () => {
         <div className="cursor-pointer" onClick={handleToggleNav}>
           <Hamburger size={20} toggled={isNavOpen} toggle={setOpen} />
         </div>
-      </div>
+      </div> */}
       <AnimatePresence initial={false}>
         {isOpen && (
           <motion.div
