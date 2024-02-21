@@ -22,6 +22,7 @@ module.exports = {
           800: "#3550B0",
           900: "#2D4497",
         },
+        // orange: "FBC108",
         lightblue: {
           DEFAULT: "#57AADE",
           100: "#9ACCEB",

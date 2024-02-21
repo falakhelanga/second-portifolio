@@ -22,4 +22,4 @@ const NavContextProvider = ({ children }: { children: React.ReactNode }) => {
 
 export default NavContextProvider;
 
-export const useNav = () => useContext(NavContext);
+export const useNav = () => useContext(NavContext) as NavType;

@@ -7,35 +7,33 @@ import CheckIcon from "@mui/icons-material/Check";
 const personalDetails = {
   country: "South Africa",
   city: "Randburg",
-  email: "sivelafj@gmail.com",
+  email: "sivelafalakhe@outlook.com",
 };
 
 const languages = {
   zulu: 100,
-  english: 80,
+  english: 100,
 
   xhosa: 75,
 };
 
 const programmingLanguages = {
-  javascript: 95,
-
-  typescript: 90,
-
-  nodejs: 90,
-  python: 40,
+  typescript: 100,
+  nodejs: 98,
+  python: 95,
+  dart: 85,
 };
 
 const otherSkills = [
-  `Reactjs, Nextjs, React Native`,
+  `Reactjs, Nextjs,Threejs`,
+  `Flutter, React Native`,
   `Express, Django`,
-  `GraphQL Apis, Restful Apis`,
+  `MongoDb, Postgresql,Redis`,
+  `AWS,Google Cloud,Docker`,
   `React testing, Jest`,
   `Tailwind css, Bootstrap, Material UI`,
-  `GraphQL, RestApi, Express`,
   `Git, Github, Bitbucket`,
-  `MongoDb, AWS, Google Cloud`,
-  `strapi, wordpress`,
+  `Strapi, wordpress`,
   `Firebase`,
 ];
 
