@@ -142,10 +142,11 @@ const SideBarContent = () => {
           </div>
         ))}
       </div>
-      <div className="my-8">
+      <div className="mt-8">
         <DividerLine />
       </div>
       {/* other skills */}
+      <div className="font-bold mb-4">Tech Stacks</div>
       <div>
         {otherSkills.map((skill) => (
           <div key={skill} className="flex items-center mb-1">

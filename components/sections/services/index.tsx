@@ -22,11 +22,11 @@ const services: ServiceProps[] = [
     description:
       "Build robust APIs to connect and streamline your software ecosystem. I specialize in designing APIs that enhance communication between different services, ensuring seamless integration and data flow.",
   },
-  {
-    title: "Database Design and Optimization",
-    description:
-      "Organize and manage your data efficiently with expert database solutions. I design, implement, and optimize databases to ensure data integrity, performance, and scalability for your applications.",
-  },
+  // {
+  //   title: "Database Design and Optimization",
+  //   description:
+  //     "Organize and manage your data efficiently with expert database solutions. I design, implement, and optimize databases to ensure data integrity, performance, and scalability for your applications.",
+  // },
   {
     title: "Code Review and Optimization",
     description:

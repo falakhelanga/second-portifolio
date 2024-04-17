@@ -8,6 +8,7 @@ import Hero from "../components/sections/hero";
 import Projects from "../components/sections/projects";
 import Services from "../components/sections/services";
 import styles from "../styles/Home.module.css";
+import AllProjectsModal from "../components/sections/projects/AllProjectsModal";
 
 // const numbers = [
 //   {
@@ -42,8 +43,8 @@ const Home: NextPage = () => {
         <About />
         <SubHeading className="mb-4 mt-14">My Services</SubHeading>
         <Services />
-        <SubHeading className="mb-4 mt-14">Works</SubHeading>
-        <Projects />
+        <SubHeading className="mb-4 mt-14">Projects</SubHeading>
+        <AllProjectsModal />
       </div>
     </div>
   );

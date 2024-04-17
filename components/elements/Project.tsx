@@ -30,7 +30,13 @@ const Project = ({
         // width={100}
         // layout="responsive"
         // className="h-[5rem] object-fit"
-      />
+      >
+        <img
+          className="h-[30rem] w-[30rem]"
+          src={image}
+          style={{ visibility: "hidden" }}
+        />
+      </div>
     </a>
 
     // <div
