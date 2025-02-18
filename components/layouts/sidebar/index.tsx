@@ -11,7 +11,7 @@ const SideBar = () => {
           // boxShadow: "0px 0px 10px rgba(0,0,0,0.8)",
         }
       }
-      className=" 2xl:flex-[0.4] lg:flex-[0.2] flex flex-col "
+      className=" 2xl:w-[15vw] lg:w-[20vw] flex flex-col "
     >
       <div className=" bg-[#24232F] flex-[0.4] row-span-3 w-full">
         <SideBarHeader />

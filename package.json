@@ -24,6 +24,7 @@
     "react-dom": "18.2.0",
     "react-masonry-list": "^1.0.6",
     "swiper": "^11.0.6",
+    "tailwind-merge": "^3.0.1",
     "typewriter-effect": "^2.19.0"
   },
   "devDependencies": {

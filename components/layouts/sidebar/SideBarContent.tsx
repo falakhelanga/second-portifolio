@@ -3,11 +3,15 @@ import { Box, width } from "@mui/system";
 import React from "react";
 import DividerLine from "../../elements/DividerLine";
 import CheckIcon from "@mui/icons-material/Check";
+import { Swiper, SwiperSlide } from "swiper/react";
+// Import Swiper styles
+import "swiper/css";
+import { Autoplay } from "swiper/modules";
 
 const personalDetails = {
-  country: "South Africa",
-  city: "Randburg",
-  email: "sivelafalakhe@outlook.com",
+  Country: "South Africa",
+  City: "Johannesburg",
+  Email: "sivelafalakhe@outlook.com",
 };
 
 const languages = {
@@ -18,25 +22,29 @@ const languages = {
 };
 
 const programmingLanguages = {
-  typescript: 100,
-  nodejs: 98,
-  python: 95,
-  dart: 85,
+  React: 98,
+  Nextjs: 98,
+  "React Native": 90,
+  Flutter: 95,
+  "ASP.net": 85,
+  Django: 85,
+  Express: 85,
+  Angular: 85,
 };
 
 const otherSkills = [
-  `Reactjs, Nextjs,Threejs`,
-  `Flutter, React Native`,
-  `Express, Django`,
-  `MongoDb, Postgresql,Redis`,
-  `AWS,Google Cloud,Docker`,
+  `MongoDb, DynamoDb ,Redis`,
+  `Postgresql, SQL Server`,
+  `AWS,Google Cloud,Docker, kubernetes`,
   `React testing, Jest`,
   `Tailwind css, Bootstrap, Material UI`,
-  `Git, Github, Bitbucket`,
+  `Git, Github, Bitbucket, Gitlab`,
   `Strapi, wordpress`,
   `Firebase`,
 ];
 
+const swipperSliderStyles =
+  "aspect-square !rounded-full bg-white flex items-center justify-center ";
 const SideBarContent = () => {
   return (
     <div className="px-6 py-4 overflow-y-auto w-full  h-full sidebar-content">
@@ -53,62 +61,80 @@ const SideBarContent = () => {
           </div>
         ))}
       </div>
-      <div className="my-8">
-        <DividerLine />
+      <div className="mt-8">
+        <DividerLine className="my-3" />
       </div>
 
       {/* languages */}
 
-      <div className="flex justify-between">
-        {Object.keys(languages).map((key) => (
-          <div key={key}>
-            <Box
-              sx={{
-                display: "flex",
-                flexDirection: "column",
-                justifyContent: "center",
-                alignItems: "center",
-              }}
-            >
-              <Box sx={{ position: "relative", display: "inline-flex" }}>
-                <CircularProgress
-                  // className="text-[#FBC108]  "
-                  variant="determinate"
-                  value={languages[key as keyof typeof languages]}
-                />
-                <Box
-                  sx={{
-                    top: 0,
-                    left: 0,
-                    bottom: 0,
-                    right: 0,
-                    position: "absolute",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                  }}
-                >
-                  <Typography
-                    className="text-muted text-xs"
-                    variant="caption"
-                    component="div"
-                    // color="text.secondary"
-                  >{`${Math.round(
-                    languages[key as keyof typeof languages]
-                  )}%`}</Typography>
-                </Box>
-              </Box>
-              <span className="text-sm capitalize mt-2 font-bold">{key}</span>
-            </Box>
-          </div>
-        ))}
+      <div className="  w-full relative  overflow-hidden ">
+        <Swiper
+          slidesPerView={3.5}
+          speed={8000}
+          loop={true}
+          className="!relative  h-full"
+          autoplay={{
+            delay: 0,
+            disableOnInteraction: false,
+            pauseOnMouseEnter: true,
+          }}
+          modules={[Autoplay]}
+          spaceBetween={18}
+          allowTouchMove={false}
+          cssMode={false}
+          onSwiper={(swiper) => {
+            swiper.el.style.setProperty(
+              "--swiper-wrapper-transition-timing-function",
+              "linear"
+            );
+          }}
+        >
+          <SwiperSlide
+            className={swipperSliderStyles}
+            style={{
+              backgroundImage: "url(/images/python_logo.png)",
+              backgroundRepeat: "no-repeat",
+              backgroundSize: "50%",
+              backgroundPosition: "center",
+            }}
+          />
+          <SwiperSlide
+            className={swipperSliderStyles}
+            style={{
+              backgroundImage: "url(/images/typescript.png)",
+              backgroundRepeat: "no-repeat",
+              backgroundSize: "50%",
+              backgroundPosition: "center",
+            }}
+          />
+          <SwiperSlide
+            className={swipperSliderStyles}
+            style={{
+              backgroundImage: "url(/images/Csharp_Logo.png)",
+              backgroundRepeat: "no-repeat",
+              backgroundSize: "contain",
+              backgroundPosition: "center",
+            }}
+          />
+          <SwiperSlide
+            className={swipperSliderStyles}
+            style={{
+              backgroundImage: "url(/images/Dart_logo.png)",
+              backgroundRepeat: "no-repeat",
+              backgroundSize: "contain",
+              backgroundPosition: "center",
+            }}
+          />
+        </Swiper>
       </div>
-      <div className="my-8">
-        <DividerLine />
+
+      <div className="mb-8">
+        <DividerLine className="my-3" />
       </div>
 
       {/* programming languages */}
       <div>
+        <h3 className="font-bold mb-3">Frameworks</h3>
         {Object.keys(programmingLanguages).map((key) => (
           <div key={key} className="mb-4">
             <Box sx={{ width: "100%" }}>
@@ -146,7 +172,7 @@ const SideBarContent = () => {
         <DividerLine />
       </div>
       {/* other skills */}
-      <div className="font-bold mb-4">Tech Stacks</div>
+      <div className="font-bold mb-4">DevOps & Utilities</div>
       <div>
         {otherSkills.map((skill) => (
           <div key={skill} className="flex items-center mb-1">
