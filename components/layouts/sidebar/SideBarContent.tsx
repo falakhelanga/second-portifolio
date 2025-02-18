@@ -82,7 +82,7 @@ const SideBarContent = () => {
           spaceBetween={18}
           allowTouchMove={false}
           cssMode={false}
-          onSwiper={(swiper) => {
+          onSwiper={(swiper: any) => {
             swiper.el.style.setProperty(
               "--swiper-wrapper-transition-timing-function",
               "linear"
