@@ -30,6 +30,9 @@ const programmingLanguages = {
   Django: 85,
   Express: 85,
   Angular: 85,
+  FastAPI: 85,
+  Langchain: 90,
+  Langgraph: 90,
 };
 
 const otherSkills = [

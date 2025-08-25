@@ -1,7 +1,37 @@
-import React, { useRef } from "react";
+import React, { useRef, useEffect, useState, useLayoutEffect } from "react";
 import Service, { ServiceProps } from "../../elements/Service";
+// Swiper for mobile slider view
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Pagination, Autoplay, Navigation } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/pagination";
 
 const services: ServiceProps[] = [
+  {
+    title: "AI Agent Engineering",
+    description:
+      "Designing autonomous & tool-augmented agents (planning, tool routing, memory, evaluation loops) using LangChain, LangGraph & custom orchestrators.",
+  },
+  {
+    title: "MCP Server Development",
+    description:
+      "Implementing Model Context Protocol servers to safely expose internal tools, data, and actions to AI assistants with permission & audit layers.",
+  },
+  {
+    title: "LangChain & LangGraph Workflows",
+    description:
+      "Composable multi-step chains & graphs: retrieval, function calling, tool adapters, structured output parsing, evaluators, and monitoring integrations.",
+  },
+  {
+    title: "Deep Research Agents",
+    description:
+      "Multi-phase research agents performing iterative querying, source ranking, synthesis & citation generation across APIs and unstructured corpora.",
+  },
+  {
+    title: "RAG & Vector Pipelines",
+    description:
+      "End-to-end retrieval augmented generation: ingestion, chunking, embeddings, hybrid search, re-ranking, caching & latency optimization.",
+  },
   {
     title: "Custom Software Development",
     description:
@@ -72,15 +102,157 @@ const services: ServiceProps[] = [
 
 const Services = () => {
   const serviceRef = useRef(null);
+  const cardRefs = useRef<HTMLDivElement[]>([]);
+  const [uniformHeight, setUniformHeight] = useState<number | null>(null);
+  const paginationRef = useRef<HTMLDivElement | null>(null);
+
+  // measure tallest card after mount & on resize using layout effect for sync sizing
+  useLayoutEffect(() => {
+    const elements = cardRefs.current.filter(Boolean);
+    if (!elements.length) return;
+    let frame: number;
+    const resizeObserver = new ResizeObserver(() => {
+      frame && cancelAnimationFrame(frame);
+      frame = requestAnimationFrame(() => {
+        const heights = elements.map((el) => el.getBoundingClientRect().height);
+        if (heights.length) {
+          const max = Math.max(...heights);
+          setUniformHeight(max);
+        }
+      });
+    });
+    elements.forEach((el) => resizeObserver.observe(el));
+    // initial measurement
+    const initial = () => {
+      const heights = elements.map((el) => el.getBoundingClientRect().height);
+      if (heights.length) setUniformHeight(Math.max(...heights));
+    };
+    // delay a tick for fonts/images
+    const t = setTimeout(initial, 30);
+    const handleResize = () => initial();
+    window.addEventListener("resize", handleResize);
+    return () => {
+      clearTimeout(t);
+      window.removeEventListener("resize", handleResize);
+      resizeObserver.disconnect();
+      frame && cancelAnimationFrame(frame);
+    };
+  }, []);
+
+  // reset refs length (in case of data change)
+  cardRefs.current = [];
+
   return (
-    <div ref={serviceRef} className="grid grid-cols-3 gap-6">
-      {services.map((service) => (
-        <Service
-          key={service.title}
-          title={service.title}
-          description={service.description}
-        />
-      ))}
+    <div
+      id="services"
+      ref={serviceRef}
+      className="w-full relative services-swiper-wrapper"
+      style={{}}
+    >
+      {/* Navigation Arrows (reuse project styles) */}
+      <button
+        aria-label="Previous service"
+        className="projects-nav-btn services-prev hidden md:flex z-30"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          strokeWidth={1.6}
+          stroke="currentColor"
+          className="w-5 h-5"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            d="M15.75 19.5L8.25 12l7.5-7.5"
+          />
+        </svg>
+      </button>
+      <button
+        aria-label="Next service"
+        className="projects-nav-btn services-next hidden md:flex z-30"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          strokeWidth={1.6}
+          stroke="currentColor"
+          className="w-5 h-5"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            d="M8.25 4.5l7.5 7.5-7.5 7.5"
+          />
+        </svg>
+      </button>
+      <Swiper
+        slidesPerView={1.1}
+        spaceBetween={16}
+        centeredSlides={false}
+        loop
+        autoplay={{
+          delay: 3800,
+          disableOnInteraction: false,
+          pauseOnMouseEnter: true,
+        }}
+        pagination={{ clickable: true, el: paginationRef.current }}
+        navigation={{ prevEl: ".services-prev", nextEl: ".services-next" }}
+        breakpoints={{
+          640: { slidesPerView: 2, spaceBetween: 20 },
+          1024: { slidesPerView: 3, spaceBetween: 24 },
+          1400: { slidesPerView: 3, spaceBetween: 28 },
+        }}
+        modules={[Pagination, Autoplay, Navigation]}
+        className="pb-4 md:pb-8 services-swiper"
+        onBeforeInit={(swiper) => {
+          // attach external pagination element before init
+          // @ts-ignore
+          swiper.params.pagination.el = paginationRef.current;
+        }}
+        onSwiper={(swiper) => {
+          // ensure pagination updates after mount
+          setTimeout(() => {
+            // @ts-ignore
+            swiper.pagination?.init();
+            // @ts-ignore
+            swiper.pagination?.render();
+            // @ts-ignore
+            swiper.pagination?.update();
+          }, 0);
+        }}
+      >
+        {services.map((service, idx) => (
+          <SwiperSlide
+            key={service.title}
+            className="!h-auto flex"
+            style={
+              uniformHeight
+                ? { minHeight: uniformHeight, height: uniformHeight }
+                : undefined
+            }
+          >
+            <div
+              ref={(el) => {
+                if (el) cardRefs.current[idx] = el;
+              }}
+              className="w-full h-full"
+            >
+              <Service
+                title={service.title}
+                description={service.description}
+              />
+            </div>
+          </SwiperSlide>
+        ))}
+      </Swiper>
+      {/* External pagination container placed below slider */}
+      <div
+        ref={paginationRef}
+        className="services-pagination flex items-center justify-center mt-5"
+      />
     </div>
   );
 };

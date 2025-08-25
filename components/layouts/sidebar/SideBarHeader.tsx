@@ -9,7 +9,9 @@ const SideBarHeader = () => {
         className="rounded-full w-[7rem] h-[7rem] object-contain"
       />
       <h3 className="text-white text-2xl mt-4 font-bold">Falakhe Sivela</h3>
-      <p className="text-muted font-thin text-sm mt-2">Full Stack Developer</p>
+      <p className="text-muted font-thin text-sm mt-2">
+        Software | AI Engineer
+      </p>
     </div>
   );
 };

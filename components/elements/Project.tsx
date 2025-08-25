@@ -18,24 +18,31 @@ const Project = ({
 }) => {
   const { image, title, desc, link } = project;
   return (
-    <a href={link} target="_blank" rel="noreferrer" className="">
+    <a
+      href={link}
+      target="_blank"
+      rel="noreferrer"
+      className="block group focus:outline-none focus:ring-2 focus:ring-primary/70 rounded-md"
+    >
       <div
         style={{
           backgroundImage: `url(${image})`,
         }}
-        className="bg-contain h-[30rem] w-[30rem] bg-no-repeat bg-center"
-        // alt=""
-        // src={image}
-        // height={100}
-        // width={100}
-        // layout="responsive"
-        // className="h-[5rem] object-fit"
+        className="bg-contain bg-no-repeat bg-center w-full max-w-[26rem] md:max-w-[28rem] aspect-[1/1] sm:aspect-[4/3] mx-auto transition-transform duration-300 group-hover:scale-[1.02]"
       >
-        <img
-          className="h-[30rem] w-[30rem]"
-          src={image}
-          style={{ visibility: "hidden" }}
-        />
+        {/* Maintain aspect ratio using invisible next/image */}
+        <span className="block w-full h-full opacity-0">
+          <Image
+            src={image}
+            alt={title}
+            layout="fill"
+            objectFit="contain"
+            priority={idx < 2}
+          />
+        </span>
+      </div>
+      <div className="mt-2 text-center text-sm text-muted max-w-[26rem] mx-auto px-2 line-clamp-3 hidden sm:block">
+        {title}
       </div>
     </a>
 

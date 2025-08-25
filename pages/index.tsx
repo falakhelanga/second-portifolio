@@ -26,8 +26,8 @@ const Home: NextPage = () => {
     <div>
       <Hero />
 
-      <div className="p-8">
-        <div className="flex gap-6 mb-7">
+      <div className="md:p-8 p-4">
+        <div className="flex gap-6 md:mb-7 mb-4">
           {/* {numbers.map((item, idx) => (
             <div className="flex items-center gap-2" key={idx}>
               <div className="text-primary font-bold text-xl">
@@ -39,11 +39,15 @@ const Home: NextPage = () => {
             </div>
           ))} */}
         </div>
-        <SubHeading className="mb-4">About me</SubHeading>
+        <SubHeading className="mb-4 max-sm:text-center">About me</SubHeading>
         <About />
-        <SubHeading className="mb-4 mt-14">My Services</SubHeading>
+        <SubHeading className="mb-4 md:mt-14 mt-12 max-sm:text-center">
+          My Services
+        </SubHeading>
         <Services />
-        <SubHeading className="mb-4 mt-14">Projects</SubHeading>
+        <SubHeading className="mb-4 md:mt-14 mt-8 max-sm:text-center">
+          Projects
+        </SubHeading>
         <AllProjectsModal />
       </div>
     </div>

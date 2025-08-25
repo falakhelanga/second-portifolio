@@ -59,3 +59,101 @@ a {
 .project:hover .project-desc {
   top: 0;
 }
+
+/* Projects slider custom pagination & navigation */
+.projects-swiper-wrapper {
+  --proj-accent: #fbc108;
+}
+.projects-swiper .swiper-pagination-bullet,
+.services-swiper .swiper-pagination-bullet,
+.projects-pagination .swiper-pagination-bullet,
+.services-pagination .swiper-pagination-bullet {
+  width: 18px;
+  height: 4px;
+  border-radius: 2px;
+  background: rgba(255, 255, 255, 0.35);
+  opacity: 1;
+  transition: all 0.35s ease;
+  position: relative;
+  overflow: hidden;
+}
+.projects-swiper .swiper-pagination-bullet-active,
+.services-swiper .swiper-pagination-bullet-active,
+.projects-pagination .swiper-pagination-bullet-active,
+.services-pagination .swiper-pagination-bullet-active {
+  background: var(--proj-accent);
+  box-shadow: 0 0 0 4px rgba(251, 193, 8, 0.15), 0 2px 4px rgba(0, 0, 0, 0.4);
+}
+.projects-nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 20;
+  background: rgba(25, 25, 35, 0.7);
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #fff;
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.projects-nav-btn:hover {
+  background: rgba(35, 35, 50, 0.9);
+  border-color: var(--proj-accent);
+  color: var(--proj-accent);
+}
+.projects-prev {
+  left: 2%;
+}
+.projects-next {
+  right: 2%;
+}
+/* External projects pagination container */
+.projects-pagination {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 1.25rem;
+  min-height: 18px;
+  z-index: 5;
+}
+/* Services slider arrows mirror project arrows */
+.services-prev {
+  left: 2%;
+}
+.services-next {
+  right: 2%;
+}
+/* Ensure services pagination sits at bottom */
+.services-swiper {
+  position: relative;
+}
+/* Set accent variable if not already */
+.services-swiper-wrapper {
+  --proj-accent: #fbc108;
+}
+/* External services pagination container */
+.services-pagination {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 1rem;
+  min-height: 18px;
+  z-index: 5;
+}
+@media (max-width: 900px) {
+  .projects-nav-btn {
+    display: none !important;
+  }
+}

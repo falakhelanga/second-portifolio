@@ -89,8 +89,13 @@ const Projects = () => {
   const projectRef = useRef(null);
   return (
     <Swiper
-      slidesPerView={2}
-      spaceBetween={1}
+      slidesPerView={1}
+      breakpoints={{
+        480: { slidesPerView: 1, spaceBetween: 8 },
+        640: { slidesPerView: 2, spaceBetween: 10 },
+        1024: { slidesPerView: 3, spaceBetween: 12 },
+      }}
+      spaceBetween={8}
       pagination={{
         clickable: true,
       }}
