@@ -106,8 +106,12 @@ const Services = () => {
   const [uniformHeight, setUniformHeight] = useState<number | null>(null);
   const paginationRef = useRef<HTMLDivElement | null>(null);
 
-  // measure tallest card after mount & on resize using layout effect for sync sizing
-  useLayoutEffect(() => {
+  // Use layout effect on client only to avoid SSR warning
+  const useIsomorphicLayoutEffect =
+    typeof window !== "undefined" ? useLayoutEffect : useEffect;
+
+  // measure tallest card after mount & on resize
+  useIsomorphicLayoutEffect(() => {
     const elements = cardRefs.current.filter(Boolean);
     if (!elements.length) return;
     let frame: number;
