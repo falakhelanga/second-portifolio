@@ -27,7 +27,7 @@ const AllProjectsModal = () => {
   };
 
   return (
-  <div id="projects" className="relative projects-swiper-wrapper">
+    <div id="projects" className="relative projects-swiper-wrapper">
       <div className="absolute -bottom-8 left-1/2 -translate-x-1/2 w-[70%] h-20 blur-2xl bg-black/60 rounded-full pointer-events-none" />
       {/* Navigation Arrows */}
       <button
@@ -90,11 +90,11 @@ const AllProjectsModal = () => {
         navigation={{ prevEl: ".projects-prev", nextEl: ".projects-next" }}
         modules={[Autoplay, Pagination, Navigation, EffectCoverflow]}
         className="pb-6 projects-swiper"
-        onBeforeInit={(swiper) => {
+        onBeforeInit={(swiper: any) => {
           // @ts-ignore attach external pagination element before init
           swiper.params.pagination.el = paginationRef.current;
         }}
-        onSwiper={(swiper) => {
+        onSwiper={(swiper: any) => {
           setTimeout(() => {
             // @ts-ignore
             swiper.pagination?.init();

@@ -207,12 +207,12 @@ const Services = () => {
         }}
         modules={[Pagination, Autoplay, Navigation]}
         className="pb-4 md:pb-8 services-swiper"
-        onBeforeInit={(swiper) => {
+        onBeforeInit={(swiper: any) => {
           // attach external pagination element before init
           // @ts-ignore
           swiper.params.pagination.el = paginationRef.current;
         }}
-        onSwiper={(swiper) => {
+        onSwiper={(swiper: any) => {
           // ensure pagination updates after mount
           setTimeout(() => {
             // @ts-ignore
