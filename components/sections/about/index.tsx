@@ -11,8 +11,8 @@ const About = () => {
         <span className="block">
           I&apos;m a versatile Full‑Stack & AI Engineer focused on building
           production‑grade web, mobile and intelligent agent systems. My core
-          stack includes TypeScript, Python, Dart, Node.js, Next.js, React,
-          Django and Flutter—deployed across AWS & Google Cloud with
+          stack includes TypeScript, Python, Node.js, Next.js, React, Fast API,
+          React Native and Flutter. deployed across AWS & Google Cloud with
           containerization (Docker) and modern CI/CD.
         </span>
         <span className="block">
